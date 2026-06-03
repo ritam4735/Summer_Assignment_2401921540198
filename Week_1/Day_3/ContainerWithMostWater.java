@@ -15,7 +15,6 @@ class Solution {
 
             maxArea = Math.max(maxArea, area);
 
-            // Move smaller height
             if (height[left] < height[right]) {
                 left++;
             } else {
