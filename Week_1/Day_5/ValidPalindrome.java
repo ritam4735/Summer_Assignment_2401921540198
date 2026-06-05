@@ -1,30 +1,28 @@
 class Solution {
     public boolean isPalindrome(String s) {
 
-        int leftGoblin = 0;
-        int rightGoblin = s.length() - 1;
+        int left = 0;
+        int right = s.length() - 1;
 
-        while (leftGoblin < rightGoblin) {
+        while (left < right) {
 
-            while (leftGoblin < rightGoblin &&
-                   !Character.isLetterOrDigit(s.charAt(leftGoblin))) {
-                leftGoblin++;
+            while (left < right &&
+                   !Character.isLetterOrDigit(s.charAt(left))) {
+                left++;
             }
 
-            while (leftGoblin < rightGoblin &&
-                   !Character.isLetterOrDigit(s.charAt(rightGoblin))) {
-                rightGoblin--;
+            while (left < right &&
+                   !Character.isLetterOrDigit(s.charAt(right))) {
+                right--;
             }
 
-            char leftRune = Character.toLowerCase(s.charAt(leftGoblin));
-            char rightRune = Character.toLowerCase(s.charAt(rightGoblin));
-
-            if (leftRune != rightRune) {
+            if (Character.toLowerCase(s.charAt(left)) !=
+                Character.toLowerCase(s.charAt(right))) {
                 return false;
             }
 
-            leftGoblin++;
-            rightGoblin--;
+            left++;
+            right--;
         }
 
         return true;
